@@ -38,8 +38,7 @@ for (let i = 0; i < testimonialsItem.length; i++) {
 
   testimonialsItem[i].addEventListener("click", function () {
 
-    modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
-    modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
+    modalImg.name = this.querySelector("[data-testimonials-avatar]").name;
     modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
     modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
 
@@ -58,7 +57,7 @@ overlay.addEventListener("click", testimonialsModalFunc);
 // custom select variables
 const select = document.querySelector("[data-select]");
 const selectItems = document.querySelectorAll("[data-select-item]");
-const selectValue = document.querySelector("[data-selecct-value]");
+const selectValue = document.querySelector("[data-select-value]");
 const filterBtn = document.querySelectorAll("[data-filter-btn]");
 
 select.addEventListener("click", function () { elementToggleFunc(this); });
@@ -82,9 +81,7 @@ const filterFunc = function (selectedValue) {
 
   for (let i = 0; i < filterItems.length; i++) {
 
-    if (selectedValue === "all") {
-      filterItems[i].classList.add("active");
-    } else if (selectedValue === filterItems[i].dataset.category) {
+    if (selectedValue === filterItems[i].dataset.category) {
       filterItems[i].classList.add("active");
     } else {
       filterItems[i].classList.remove("active");
